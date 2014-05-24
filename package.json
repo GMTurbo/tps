@@ -1,27 +1,31 @@
 {
   "name": "tps",
   "version": "0.0.0",
-  "description": "thin-plate spline module for n-dimensional mapping",
-  "main": "rbf.js",
+  "description": "Need to map points and arbitary numbers? Want to make smooth curves through 2D points? Need to map a 3D surface to some parametric values?  Now you can!",
+  "main": "tps.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "sylvester": "^0.0.21"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "node tests/test.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/GMTurbo/tps"
+    "url": "https://github.com/GMTurbo/tps.git"
   },
   "keywords": [
     "radial-basis-function",
     "thin-plate-spline",
     "tps"
   ],
-  "author": "gabe testa",
+  "author": "Gabe Testa <gabe.testa@gmail.com> (http://www.github.com/gmturbo)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/GMTurbo/tps/issues"
   },
-  "homepage": "https://github.com/GMTurbo/tps",
-  "devDependencies": {
-    "sylvester": "0.0.21"
-  }
+  "homepage": "https://github.com/GMTurbo/tps"
 }
