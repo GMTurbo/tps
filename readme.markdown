@@ -107,10 +107,11 @@ tps3D.compile(pnts3D, target, function(err){
 Thin plate splines (TPS) are an interpolation and smoothing technique, the generalisation of splines so that they may be used with two or more dimensions.
 
 Uses:
-1. Image processing (deformation)
-2. Surface Creation (generate complete surface from uneven grid of points)
-3. Data interpolation (create full colormaps with only a few target points)
-4. A ton more.
+
+* Image processing (deformation)
+* Surface Creation (generate complete surface from uneven grid of points)
+* Data interpolation (create full colormaps with only a few target points)
+* A ton more.
 
 The best part:
 once the RBF is compiled, it is a complete mapping!  That means it will interpolate AND extrapolate values for you.
