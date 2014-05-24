@@ -1,0 +1,26 @@
+{
+  "name": "tps",
+  "version": "0.0.0",
+  "description": "thin-plate spline module for n-dimensional mapping",
+  "main": "rbf.js",
+  "scripts": {
+    "test": "node tests/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GMTurbo/tps"
+  },
+  "keywords": [
+    "radial",
+    "basis",
+    "function",
+    "thin-plate",
+    "spline"
+  ],
+  "author": "gabe testa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GMTurbo/tps/issues"
+  },
+  "homepage": "https://github.com/GMTurbo/tps"
+}

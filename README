@@ -1,0 +1,8 @@
+
+radial basis function fun in js!
+
+implemented thin-plate spline for now.
+
+math found here: step.polymtl.ca/~rv101/thinplates/
+
+http://sylvester.jcoglan.com/ is where I got the matrix library
