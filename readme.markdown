@@ -1,6 +1,6 @@
 # tps
 
-Need to map points and arbitary numbers? Want to make smooth curves through 2D points? Need to map a 3D surface to some parametric values?  Now you can!
+Need to map points and arbitrary numbers? Want to make smooth curves through 2D points? Need to map a 3D surface to some parametric values?  Now you can!
 
 # example
 
@@ -312,7 +312,7 @@ The more fitpoints you have, the longer it takes to compile.
 With [npm](https://npmjs.org) do:
 
 ```
-npm install tps
+npm install thinplate
 ```
 to get the library.
 
