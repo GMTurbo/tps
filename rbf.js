@@ -11,7 +11,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 
 //http://step.polymtl.ca/~rv101/thinplates/
 
-var RBF = function(){
+var TPS = function(){
   var centers, ws, ys;
   
   var distance = function(pnt1, pnt2){
@@ -93,7 +93,7 @@ var RBF = function(){
        return;
      }
      
-     cb(null, {result: 'success'});
+     cb();
      
     }.bind(this), 0);
   
@@ -134,4 +134,4 @@ var RBF = function(){
   
 };
 
-module.exports = RBF;
+module.exports = TPS;
