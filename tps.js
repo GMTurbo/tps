@@ -108,6 +108,9 @@ var TPS = function(){
     var X = $M(x);
     var B = $V(b);
     X = X.inverse();
+    if(!X){
+      return;
+    }
     return X.multiply(B);
   };
   

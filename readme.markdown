@@ -112,6 +112,9 @@ Uses:
 3. Data interpolation (create full colormaps with only a few target points)
 4. A ton more.
 
+The best part:
+once the RBF is compiled, it is a complete mapping!  That means it will interpolate AND extrapolate values for you.
+
 # usage
 
 ```
@@ -119,18 +122,15 @@ usage:
 
   var TPS = require('tps');
   var tps = new TPS();
-
-  // compile the thin-plate spline with fitpoints
-  // and with target points
   
-  var fitpoints = [ [0,0], [1,1], [2,2], [3,3] ];
-
+  var fitpoints = [ [0,1], [1,1], [2,5], [3,4] ];
+  
   // we'll set the target to the be y value of each point
   // this will generate a curve that goes through our fitpoints
   var targets = fitpoints.map(function(curr){
       return curr[curr.length-1];
   });
-
+  
   //compile requires fitpoint, target and a callback
   // callback returns error if there is one
   tps.compile(fitpoints, targets, function(err){
@@ -140,16 +140,42 @@ usage:
     }
     
     //now that it compiled we can use it.
-    //
+    
+    //fill out some random points to interpolate
+    // (interpolation happens within the fitpoint boundaries)
+    var pnts = [];
+    for(var i = 0 ; i < 20; i++){
+      pnts.push([Math.random() * 5, Math.random() * 5]);
+    }
+    
+    //have the tps solve for the values!
     tps.getValues(pnts, function(err, result){
-
+  
         if(err) {
           console.error(err);
           return;
         }
     
         console.dir(result);
-      })
+      });
+      
+    //fill out some random points to extrapolate
+    // (extrapolation happens outside the fitpoint boundaries)
+    var pnts = [];
+    for(var i = 0 ; i < 20; i++){
+      pnts.push([5 + Math.random() * 5,  5 + Math.random() * 5]);
+    }
+    
+    //have the tps solve for the values!
+    tps.getValues(pnts, function(err, result){
+  
+        if(err) {
+          console.error(err);
+          return;
+        }
+    
+        console.dir(result);
+      });
   });
 
 ```
@@ -183,12 +209,13 @@ The more fitpoints you have, the longer it takes to compile.
 ## tps.getValues(points, cb)
 
 * points must have same dimension as original fitpoints.
-* 'cb(err, results)' signature
-* 'results.ys' is the calculated interpolants.
+* `cb(err, results)` signature
+* `results.ys` is the calculated interpolants
+* `results.points` are the inputted points
 
 ## tps.getValue(point)
 
-* returns a calculated interpolant from a single fitpoint.
+* returns a calculated interpolant (number) from a single fitpoint.
 
 # install
 
