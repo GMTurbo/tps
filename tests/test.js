@@ -1,5 +1,5 @@
 
-var TPS = require('../tps');
+var TPS = require('../thinplate');
 
 var target = [10,20,30,40];
 

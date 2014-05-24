@@ -121,7 +121,7 @@ once the RBF is compiled, it is a complete mapping!  That means it will interpol
 ```
 usage:
 
-  var TPS = require('tps');
+  var TPS = require('thinplate');
   var tps = new TPS();
   
   var fitpoints = [ [0,1], [1,1], [2,5], [3,4] ];
@@ -279,7 +279,7 @@ runs the example tests.
 # methods
 
 ``` js
-var TPS = require('tps');
+var TPS = require('thinplate');
 ```
 
 ## var tps = new TPS();

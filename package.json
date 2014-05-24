@@ -1,5 +1,5 @@
 {
-  "name": "tps",
+  "name": "thinplate",
   "version": "0.0.0",
   "description": "Need to map points and arbitary numbers? Want to make smooth curves through 2D points? Need to map a 3D surface to some parametric values?  Now you can!",
   "main": "tps.js",
