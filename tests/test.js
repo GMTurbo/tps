@@ -102,7 +102,7 @@ var targets = fitpoints.map(function(curr){
       pnts.push([Math.random() * 5, Math.random() * 5]);
     }
     
-    console.log('interpolants!')
+    
     //have the tps solve for the values!
     tps.getValues(pnts, function(err, result){
   
@@ -110,8 +110,8 @@ var targets = fitpoints.map(function(curr){
           console.error(err);
           return;
         }
-    
-        console.dir(result);
+        console.log('interpolants!')
+        console.dir(result.ys);
       });
       
     //fill out some random points to extrapolate
@@ -121,7 +121,7 @@ var targets = fitpoints.map(function(curr){
       pnts.push([5 + Math.random() * 5,  5 + Math.random() * 5]);
     }
     
-    console.log('extrapolants!')
+    
     //have the tps solve for the values!
     tps.getValues(pnts, function(err, result){
   
@@ -129,8 +129,8 @@ var targets = fitpoints.map(function(curr){
           console.error(err);
           return;
         }
-    
-        console.dir(result);
+        console.log('extrapolants!')
+        console.dir(result.ys);
       });
   });
 
