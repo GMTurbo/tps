@@ -1,4 +1,5 @@
-# tps
+# Thin-Plate Spline (TPS)
+
 
 Need to map points and arbitrary numbers? Want to make smooth curves through 2D points? Need to map a 3D surface to some parametric values?  Now you can!
 
@@ -121,6 +122,8 @@ Uses:
 
 The best part:
 once the RBF is compiled, it is a complete mapping!  That means it will interpolate AND extrapolate values for you.
+
+[Good Tutorial on TPS](http://step.polymtl.ca/~rv101/thinplates/)
 
 # usage
 
