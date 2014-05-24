@@ -11,16 +11,17 @@
     "url": "https://github.com/GMTurbo/tps"
   },
   "keywords": [
-    "radial",
-    "basis",
-    "function",
-    "thin-plate",
-    "spline"
+    "radial-basis-function",
+    "thin-plate-spline",
+    "tps"
   ],
   "author": "gabe testa",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/GMTurbo/tps/issues"
   },
-  "homepage": "https://github.com/GMTurbo/tps"
+  "homepage": "https://github.com/GMTurbo/tps",
+  "devDependencies": {
+    "sylvester": "0.0.21"
+  }
 }
