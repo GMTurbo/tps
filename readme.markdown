@@ -1,4 +1,5 @@
 # Thin-Plate Spline (TPS)
+[![NPM version](https://badge.fury.io/js/thinplate.svg)](http://badge.fury.io/js/thinplate)
 
 
 Need to map points and arbitrary numbers? Want to make smooth curves through 2D points? Need to map a 3D surface to some parametric values?  Now you can!
