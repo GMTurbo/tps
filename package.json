@@ -9,7 +9,6 @@
   "dependencies": {
     "sylvester": "^0.0.21"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "node tests/test.js"
   },

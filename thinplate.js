@@ -10,7 +10,7 @@ require('sylvester');
 
 var TPS = function(){
   var centers, ws, ys;
-  
+
   var distance = function(pnt1, pnt2){
     var sum = 0;
     if(!pnt1.length)
@@ -19,83 +19,79 @@ var TPS = function(){
       sum += (Math.pow(pnt1[i] - pnt2[i], 2));
     }
     return Math.sqrt(sum);
-  }
-  
+  };
+
   //this is going to be a thin-plate spline
   //f(x,y) = a1 + a2x + a3y + SUM(wi * kernel())
   var kernel = function(pnt1, pnt2){
     var r = distance(pnt1, pnt2);
     if(r === 0 ) return 0;
     return Math.pow(r, 2) * Math.log(r);
-  }
-  
+  };
+
   this.compile = function(cents, y_vals, cb){
-   
+
     setTimeout(function(){
       if(!cents || cents.length === 0){
-      // console.error('bad centers array :/');
        cb('bad centers array :/');
        return;
      }
-     
+
      if(!cents.every(function(element){
         return element.length === cents[0].length;
      })) {
-        //console.error('centers must have same dimensions :/');
         cb('centers must have same dimensions :/');
         return;
      }
-     
+
      centers = cents.map(function(curr) { return curr;});
      ws = [];
      ys = y_vals.map(function(curr) { return curr;});
      var matrix = [], matRow = [];
      var P = [], pRow = [];
      for(var i = 0 ; i < centers.length ; i++){
-      
+
       matRow = [];
       pRow = [1];
       for(var k = 0 ; k < centers[i].length; k++){
        pRow.push(centers[i][k]);
       }
-      
+
       for(var j = 0 ; j < centers.length ; j++){
-        
         matRow.push(kernel(centers[i], centers[j]));
-        
       }
       P.push(pRow);
       matrix.push(matRow.concat(pRow));
-      
+
      }
-     
+
      var pT = $M(P).transpose();
-     
+
      var newRows = pT.elements.map(function(row){
        for(var i = row.length ; i < matrix[0].length; i++){
          row.push(0);
        }
        return row;
      });
-     
+
      for(var i = 0 ; i < newRows.length ; i++){
        matrix.push(newRows[i]);
        ys.push(0);
      }
-     
+
      ws = this._solve(ys, matrix);
-     
+
      if(!ws){
        cb('rbf failed to compile with given centers./nCenters must be unique :/');
        return;
      }
-     
+
      cb();
-     
+
     }.bind(this), 0);
-  
+
   };
-  
+
   this._solve = function(b, x){
     //a*x = b
     //a = b * x^-1
@@ -110,7 +106,7 @@ var TPS = function(){
     }
     return X.multiply(B);
   };
-  
+
   this.getValue = function(pnt){
     var result = 0, i = 0;
     for( i = 0 ; i < centers.length; i++){
@@ -122,7 +118,7 @@ var TPS = function(){
     }
     return result;
   };
-  
+
   this.getValues = function(pnts, cb){
     setTimeout(function(){
       var resultArr = pnts.map(function(pnt){
@@ -131,7 +127,7 @@ var TPS = function(){
       cb(null, {points: pnts, ys: resultArr});
     }.bind(this), 0);
   };
-  
+
 };
 
 module.exports = TPS;

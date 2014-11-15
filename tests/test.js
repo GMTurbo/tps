@@ -20,7 +20,7 @@ tps1D.compile(pnts1D, target, function(err){
   console.log('worked!');
   tps1D.getValues(pnts1D, function(err, result){
     if(err) {console.error(err); return;}
-    
+
     console.dir(result);
   });
 });
@@ -35,19 +35,19 @@ var pnts2D = [
   ];
 
 tps2D.compile(pnts2D, target, function(err){
-  
+
   if(err){
     console.error(err);
     return;
   }
-  
+
   console.log('worked!');
   tps2D.getValues(pnts2D, function(err, result){
     if(err) {console.error(err); return;}
-    
+
     console.dir(result);
   });
-  
+
 });
 
 var pnts3D = [
@@ -67,9 +67,9 @@ tps3D.compile(pnts3D, target, function(err){
   console.log('worked!');
   tps3D.getValues(pnts3D, function(err, result){
     if(err) {console.error(err); return;}
-    
+
     console.dir(result);
-  })
+  });
 });
 
 // compile the thin-plate spline with fitpoints
@@ -92,20 +92,20 @@ var targets = fitpoints.map(function(curr){
       console.error(err);
       return;
     }
-    
+
     //now that it compiled we can use it.
-    
+
     //fill out some random points to interpolate
     // (interpolation happens within the fitpoint boundaries)
     var pnts = [];
     for(var i = 0 ; i < 20; i++){
       pnts.push([Math.random() * 5, Math.random() * 5]);
     }
-    
-    
+
+
     //have the tps solve for the values!
     tps.getValues(pnts, function(err, result){
-  
+
         if(err) {
           console.error(err);
           return;
@@ -113,18 +113,18 @@ var targets = fitpoints.map(function(curr){
         console.log('interpolants!')
         console.dir(result.ys);
       });
-      
+
     //fill out some random points to extrapolate
     // (extrapolation happens outside the fitpoint boundaries)
     var pnts = [];
     for(var i = 0 ; i < 20; i++){
       pnts.push([5 + Math.random() * 5,  5 + Math.random() * 5]);
     }
-    
-    
+
+
     //have the tps solve for the values!
     tps.getValues(pnts, function(err, result){
-  
+
         if(err) {
           console.error(err);
           return;
@@ -133,4 +133,3 @@ var targets = fitpoints.map(function(curr){
         console.dir(result.ys);
       });
   });
-
