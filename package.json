@@ -2,7 +2,7 @@
   "name": "thinplate",
   "version": "0.0.2",
   "description": "Need to map points and arbitrary numbers? Want to make smooth curves through 2D points? Need to map a 3D surface to some parametric values?  Now you can!",
-  "main": "tps.js",
+  "main": "thinplate.js",
   "directories": {
     "test": "tests"
   },
